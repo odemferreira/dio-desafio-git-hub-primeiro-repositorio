@@ -1,0 +1,77 @@
+/*consumo de energia              AM  1,07Khw   media nacional 0,85     
+    lampada
+      Kwh  watts  HORAS   DIAS  
+Eel = 4,5/1000 x  (1,5  x  30)
+E = 202,5Kwh
+202,5KWh x 1,07 = R$216,67*/
+#include<stdio.h> 
+#include<math.h>
+#define tarifa 1.07
+struct aparelho{                     
+	char  nome[20];  
+	int   qtd;      
+	float potencia;     
+	float horas;                                       
+	float total;                               
+};                                              
+ struct aparelho aparelho1;                          	
+
+int main(){  
+int a=0;
+float calculo=0;
+float  tempo=0;
+int valor=0;
+float valor1=0;
+float maior=0;
+    printf("\n\t\t\t#####     CON$UMO DE ENERGIA ELETRICA     #####");
+   	printf("\n------------------------------------------------------------------------------------------------------");
+ do{
+	printf("\n\ndigite o nome do aparelho: ");
+	scanf("%s",&aparelho1.nome);
+	
+	printf("\nquantidade de aparelho iguais a este: ");
+	scanf("%d",&aparelho1.qtd);
+	
+	printf("\na potencia esta em: Escolha 1-watts ou 2-Kwh: ");
+	scanf("%f",&aparelho1.potencia);
+	
+	if(aparelho1.potencia==1){
+		printf("quantos watts?");
+		scanf("%f",&aparelho1.potencia);
+	calculo = aparelho1.potencia/1000;}
+	
+	else{
+	    printf("quantos Kwh?");
+	     scanf("%f",&aparelho1.potencia);
+	calculo = aparelho1.potencia;}
+	
+	
+	printf("\no tempo de consumo esta em: Escolha 1-horas ou 2-minutos ");
+	scanf("%f",&aparelho1.horas);
+	
+		if(aparelho1.horas==1){
+		printf("quantas horas?");
+		scanf("%f",&aparelho1.horas);
+	tempo = aparelho1.horas;
+	
+	}else{
+	    printf("quantos minutos?");
+	     scanf("%f",&aparelho1.horas);
+	tempo = aparelho1.horas/60;}
+	
+	aparelho1.total = calculo*tempo*30*tarifa;
+	
+    valor = valor + aparelho1.total;	
+	printf("\nVALOR A PAGAR EM MEDIA DE CONSUMO POR ESTE APARELHO NO MES: %.2f ",aparelho1.total);
+	
+
+	printf("\n------------------------------------------------------------------------------------------------------");	
+	printf("\n\t\t\t#####    DIGITE 1 PARA CONTINUAR OU 0 PARA SAIR     #####");
+	scanf("%d",&a);}
+	while( a != 0);
+	
+		
+	printf("total a pagar:R$ %0.2f ",valor1);
+	
+	
+}
